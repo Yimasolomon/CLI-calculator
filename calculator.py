@@ -21,36 +21,70 @@ def display_menu():
     print("5. Exit")
 
 def get_user_choice():
-    choice = input("Choose an operation: ")
+    return input("Choose an operation: ")
 
 
 def perform_operation(choice):
     if choice == "1":
-        first, second = get_numbers()
+        numbers = get_numbers()
+
+        if numbers is None:
+            return "Returning to main menu"
+        
+        first, second = numbers
         return add(first, second)
     elif choice == "2":
-        first, second = get_numbers()
+        numbers = get_numbers()
+
+        if numbers is None:
+            return "Returning to main menu"
+        
+        first, second = numbers
         return subtract(first, second)
     elif choice == "3":
-        first, second = get_numbers()
+        numbers = get_numbers()
+
+        if numbers is None:
+            return "Returning to main menu"
+        
+        first, second = numbers
         return multiply(first, second)
     elif choice == "4":
-        first, second = get_numbers()
+        numbers = get_numbers()
+
+        if numbers is None:
+            return "Returning to main menu"
+        
+        first, second = numbers
         return divide(first, second)
     elif choice == "5":
         return "Exiting calculator"
     else:
         return "Invalid choice. Please select 1-5"
 
+# def get_numbers():
+#     try:
+#         first_number = float(input("Enter first number: "))
+#         second_number = float(input("Enter second number: "))
+#         return first_number, second_number
+#     except ValueError:
+#         print("Invalid input. Please enter a number.")
+#         return None
+
 def get_numbers():
-    first_number = float(input("Enter first number: "))
-    second_number = float(input("Enter second number: "))
-    return first_number, second_number
+    try:
+        first_number = float(input("Enter first number: "))
+        second_number = float(input("Enter second number: "))
+        return first_number, second_number
+
+    except ValueError:
+        print("Invalid input. Please enter a number")
+        return None
 
 def main():
     while True:
         display_menu()
-        choice = input("Select an operation (1-5): ")
+        choice = get_user_choice()
 
         message = perform_operation(choice)
         print(message)
