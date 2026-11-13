@@ -62,15 +62,6 @@ def perform_operation(choice):
     else:
         return "Invalid choice. Please select 1-5"
 
-# def get_numbers():
-#     try:
-#         first_number = float(input("Enter first number: "))
-#         second_number = float(input("Enter second number: "))
-#         return first_number, second_number
-#     except ValueError:
-#         print("Invalid input. Please enter a number.")
-#         return None
-
 def get_numbers():
     try:
         first_number = float(input("Enter first number: "))
